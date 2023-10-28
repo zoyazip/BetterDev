@@ -1,0 +1,105 @@
+.card {
+    width: 100%;
+    height: 175px;
+    display: flex;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 23px;
+    background-color: #fff;
+    box-shadow: -7px 4px 18px #00000010;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.DeveloperInfo {
+    width: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.developerName {
+    margin-top: 15px;
+}
+
+.developerStars {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ratingInNumber {
+    margin-left: 10px;
+}
+
+.developerServices {
+    margin-top: 20px;
+    width: 272px;
+    margin-left: 50px;
+}
+
+.services {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.service {
+    color: #fff;
+    font-size: 14px;
+    padding: 12px 30px;
+    font-weight: 700;
+    border-radius: 21px;
+    background-color: #2562FF;
+}
+
+.developerLocation {
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.location {
+    font-size: 32px;
+    font-weight: 700;
+    color: #2562FF;
+}
+
+.developerProjects {
+    margin-top: 20px;
+    margin-left: 80px;
+}
+
+.projects {
+    width: 256px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #2562FF;
+}
+
+.developerCTA {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 45px;
+}
+
+.cta {
+    background-color: #2562FF;
+    height: 52px;
+    display: inline-flex;
+    color: #fff;
+    font-size: 24px;
+    width: 222px;
+    border-radius: 26px;
+    align-items: center;
+    justify-content: center;
+}
+.cta span {
+    margin-left: 69px;
+}
+.cta img {
+    margin-left: 50px;
+}

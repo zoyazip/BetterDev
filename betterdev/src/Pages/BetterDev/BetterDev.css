@@ -1,0 +1,6 @@
+.betterDev {
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    max-width: 1448px;
+}
