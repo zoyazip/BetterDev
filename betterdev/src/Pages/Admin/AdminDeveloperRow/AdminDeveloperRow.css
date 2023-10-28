@@ -1,0 +1,48 @@
+.adminDeveloperRow {
+    display: flex;
+    align-items: center;
+    
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.adminLogo {
+    width: 70px;
+} 
+
+.adminDeveloperRow:nth-child(odd) {
+    background-color: #2563ff10;
+}
+.adminDeveloperRow:nth-child(even) {
+    background-color: white;
+}
+.adminDeveloperRow > div:nth-child(1) {
+    margin-left: 16px;
+    width: 155px;
+  }
+  
+  .adminDeveloperRow > div:nth-child(2) {
+    width: 320px;
+  }
+  
+  .adminDeveloperRow > div:nth-child(3) {
+    width: 165px;
+  }
+  
+  .adminDeveloperRow > div:nth-child(4) {
+    width: 310px;
+  }
+  
+  .adminDeveloperRow > div:nth-child(5) {
+    width: 140px;
+  }
+
+  .activity {
+    display: flex;
+  }
+
+  .edit {
+    margin-right: 10px; 
+  }
+  .remove {
+    margin-right: 10px;
+  }

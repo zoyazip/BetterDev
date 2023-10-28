@@ -1,0 +1,39 @@
+.adminPanel {
+    margin-top: 50px;
+    width: 1154px;
+}
+
+.adminPanel__title {
+    display: flex;
+}
+
+.adminPanel__title img {
+    margin-left: 15px;
+}
+
+.adminTable {
+    font-weight: 700;
+    display: flex;
+    padding-bottom: 20px;
+}
+
+.adminTable > div:nth-child(1) {
+    margin-left: 16px;
+    width: 155px;
+  }
+  
+  .adminTable > div:nth-child(2) {
+    width: 320px;
+  }
+  
+  .adminTable > div:nth-child(3) {
+    width: 165px;
+  }
+  
+  .adminTable > div:nth-child(4) {
+    width: 310px;
+  }
+  
+  .adminTable > div:nth-child(5) {
+    width: 140px;
+  }
