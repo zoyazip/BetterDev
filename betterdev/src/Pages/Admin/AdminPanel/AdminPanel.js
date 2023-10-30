@@ -2,12 +2,13 @@ import "./AdminPanel.css";
 import AddUser from "../../../Assets/addUser.svg"
 import AdminDeveloperRow from "../AdminDeveloperRow/AdminDeveloperRow";
 
-const AdminPanel = () => {
+const AdminPanel = ({ handleClick }) => {
+    
     return (
         <div className="adminPanel">
             <div className="adminPanel__title">
                 <h1>Admin Panel</h1>
-                <img src={AddUser} />
+                <img src={AddUser} onClick={handleClick}/>
             </div>
             <div className="adminTable">
                 <div><span>Name</span></div>
