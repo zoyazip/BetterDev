@@ -95,6 +95,7 @@
     border-radius: 26px;
     align-items: center;
     justify-content: center;
+    text-decoration: none;
 }
 .cta span {
     margin-left: 69px;

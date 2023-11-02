@@ -12,7 +12,7 @@ const Nav = () => {
 
     return (
         <div className="navigation__container">
-            <img src={Logo} alt="BetterDev" className="logo" />
+            <img src={Logo} alt="BetterDev" />
             <img src={BurgerMenu} alt="BurgerMenu" className="burgerMenu" onClick={toggleMenu} />
             <ul className={`navigation ${isMenuOpen ? 'active' : ''}`}>
                 <li>
