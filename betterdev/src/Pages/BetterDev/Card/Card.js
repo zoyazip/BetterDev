@@ -51,7 +51,7 @@ const Card = () => {
                 <div className="projects"><span>Drogas, Madara, Aizdevums.lv</span></div>
             </div>
             <div className="developerCTA">
-                <a className="cta">
+                <a className="cta" href="#">
                     <span>Info</span>
                     <img src={ButtonArrow} />
                 </a>
