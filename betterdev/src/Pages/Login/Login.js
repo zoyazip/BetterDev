@@ -13,7 +13,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("your-backend-url", loginData);
+            const response = await axios.post("http://localhost:8080/api/v1/auth/authenticate", loginData);
         
             if (response.status === 200) {
               console.log("Success");
