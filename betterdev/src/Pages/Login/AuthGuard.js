@@ -1,11 +1,15 @@
-import { Navigate } from 'react-router-dom';
+import React from 'react'
+import Cookies from 'js-cookie';
+import { Navigate, Outlet } from "react-router-dom"
 
-const AuthGuard = ({ children, isAuthenticated }) => {
-  if (!isAuthenticated) {
+const useAuth = () => {
+  const user = {loggedIn: Cookies.get("jwt") ? true : false }
+  return user && user.loggedIn
+}
 
-    return <Navigate to="/login" />;
-  }
-  return children;
-};
+const AuthGuard = () => {
+  const isAuth = useAuth()
+  return isAuth ? <Outlet /> : <Navigate to="/login"/>
+}
 
-export default AuthGuard;
+export default AuthGuard

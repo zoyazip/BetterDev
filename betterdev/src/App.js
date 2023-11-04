@@ -3,10 +3,9 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./Pages/Login/Login";
 import Admin from './Pages/Admin/Admin';
-import AuthGuard from './Pages/Login/AuthGuard';
+import AuthGuard from "./Pages/Login/AuthGuard"
 
 function App() {
-  const isAuthenticated = sessionStorage.getItem('jwt') ? true : false;
 
   return (
     <Router>
@@ -14,14 +13,9 @@ function App() {
         <Routes>
           <Route path="/" element={<BetterDev />} />
           <Route path="/login" element={<Login />} />
-          <Route
-            path="/admin"
-            element={
-              <AuthGuard isAuthenticated={isAuthenticated}>
-                <Admin />
-              </AuthGuard>
-            }
-          />
+          <Route element={<AuthGuard />}>
+            <Route path="/admin" element={<Admin />} />
+          </Route>
         </Routes>
       </div>
     </Router>
