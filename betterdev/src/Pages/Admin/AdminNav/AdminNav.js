@@ -1,10 +1,11 @@
 import "./AdminNav.css";
 import Logo from "../../../Assets/BetterDev_logo.svg";
+import Cookies from "js-cookie";
 
 const AdminNav = () => {
 
     const exit = () => {
-        sessionStorage.removeItem("jwt")
+        Cookies.remove("jwt")
     }
 
 

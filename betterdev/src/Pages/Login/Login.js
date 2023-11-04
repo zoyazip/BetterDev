@@ -3,9 +3,11 @@ import Logo from "../../Assets/BetterDev_logo.svg";
 import { useState } from "react";
 import axios from "axios";
 import {useNavigate} from "react-router-dom"
+import Cookies  from "js-cookie";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import Admin from "../Admin/Admin";
 
 const Login = () => {
-  
   const navigate = useNavigate()
 
   const [loginData, setLoginData] = useState({
@@ -23,8 +25,8 @@ const Login = () => {
       );
 
       if (response.status === 200) {
-        sessionStorage.setItem("jwt", response.data.token);
-        navigate("/admin")
+        Cookies.set("jwt", response.data.token, {expires: 1});
+        navigate("/admin", {replace: true})
       }
     } catch (error) {
       alert("Wrong login and/or password");
