@@ -1,23 +1,17 @@
 import "./Login.css";
 import Logo from "../../Assets/BetterDev_logo.svg";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom"
 
 const Login = () => {
-  let navigate = useNavigate();
-  const [isLoged, setIsLoged] = useState(false); 
+  
+  const navigate = useNavigate()
 
   const [loginData, setLoginData] = useState({
     username: "",
     password: "",
   });
-
-  const redirect = () => {
-    if (isLoged) {
-      navigate("/admin")
-    }
-  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,12 +24,10 @@ const Login = () => {
 
       if (response.status === 200) {
         sessionStorage.setItem("jwt", response.data.token);
-        setIsLoged(true);
-        redirect();
+        navigate("/admin")
       }
     } catch (error) {
       alert("Wrong login and/or password");
-      setIsLoged(false)
       console.error("Error:", error);
     }
   };
@@ -46,6 +38,8 @@ const Login = () => {
       [e.target.name]: e.target.value,
     });
   };
+
+
   return (
     <div className="login">
       <img src={Logo} alt="Logo" />

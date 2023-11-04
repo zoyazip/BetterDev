@@ -8,3 +8,8 @@
     background-color: #fff;
     position: sticky;
 }
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
