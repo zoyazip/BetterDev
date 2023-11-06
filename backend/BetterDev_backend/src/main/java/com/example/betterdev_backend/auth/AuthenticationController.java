@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class AuthenticationController {
 
-    private final DeveloperRepository developerRepository;
     private final AuthenticationService service;
 
     @PostMapping("/register")
@@ -26,19 +25,7 @@ public class AuthenticationController {
         return ResponseEntity.ok(service.authenticate(request));
     }
 
-    @PostMapping("/add")
-    public ResponseEntity<DeveloperEntity> add(@RequestBody DeveloperEntity developerEntity) throws Exception {
-        // Validate the developerEntity body.
-        System.out.println("Called");
-        if (developerEntity.getName() == null || developerEntity.getName().isEmpty()) {
-            throw new Exception("The developer name is required.");
-        }
 
-        // Save the developerEntity to the database.
-        DeveloperEntity savedDeveloperEntity = developerRepository.save(developerEntity);
-
-        return ResponseEntity.ok(savedDeveloperEntity);
-    }
 }
 
 

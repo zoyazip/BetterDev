@@ -7,23 +7,19 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Builder
+@Table(name = "_image")
 @Data
-@AllArgsConstructor
+@Builder
 @NoArgsConstructor
-@Table(name = "_developer")
-public class DeveloperEntity {
+@AllArgsConstructor
+public class ImageEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
     private String name;
-    private String rating;
-    private String services;
-    private String location;
-    private String clients;
-    private String url;
-    @OneToOne
-    @JoinColumn(name = "ImageEntity_id")
-    private ImageEntity logo;
+    private String dataType;
+    @Lob
+    private byte[] imageData;
+
+
 }
