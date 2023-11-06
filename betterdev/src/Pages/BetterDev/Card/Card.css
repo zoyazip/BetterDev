@@ -10,6 +10,10 @@
     margin-bottom: 25px;
 }
 
+.developerLogo {
+    width: 150px;
+}
+
 .DeveloperInfo {
     width: 160px;
     display: flex;
@@ -64,6 +68,7 @@
     font-size: 32px;
     font-weight: 700;
     color: #2562FF;
+    width: 200px;
 }
 
 .developerProjects {
