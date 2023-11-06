@@ -1,5 +1,7 @@
 package com.example.betterdev_backend.auth;
 
+import com.example.betterdev_backend.developer.DeveloperEntity;
+import com.example.betterdev_backend.developer.DeveloperRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,4 +24,8 @@ public class AuthenticationController {
     public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request) {
         return ResponseEntity.ok(service.authenticate(request));
     }
+
+
 }
+
+
