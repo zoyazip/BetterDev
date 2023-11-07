@@ -4,8 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import {useNavigate} from "react-router-dom"
 import Cookies  from "js-cookie";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import Admin from "../Admin/Admin";
+
 
 const Login = () => {
   const navigate = useNavigate()
@@ -33,6 +32,7 @@ const Login = () => {
       console.error("Error:", error);
     }
   };
+
 
   const handleChange = (e) => {
     setLoginData({

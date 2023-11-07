@@ -56,11 +56,6 @@ const Card = ({name, rating, clients, services, location, url, logo}) => {
                 <div className="developerStars">
                     <div className="stars">
                     {stars.map((star) => star)}
-                        {/* <img src={FullStar} />
-                        <img src={FullStar} />
-                        <img src={FullStar} />
-                        <img src={FullStar} />
-                        <img src={HalfStar} /> */}
                     </div>
                     <div className="ratingInNumber">
                         <span>{ratingDouble}</span>

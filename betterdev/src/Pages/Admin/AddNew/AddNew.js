@@ -11,31 +11,38 @@ const AddNew = (props) => {
     location: "",
     clients: "",
     url: "",
-    logo: ""
+    file: null,
+    rating: ""
   })
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(developer);
+
+    const formData = new FormData();
+    formData.append("name", developer.name);
+    formData.append("clients", developer.clients);
+    formData.append("location", developer.location);
+    formData.append("services", developer.services);
+    formData.append("url", developer.url);
+    formData.append("file", developer.file);
+    formData.append("rating", developer.rating)
+
     try {
-        const response = await axios.post("your-backend-url", developer);
-    
-        if (response.status === 200) {
-          console.log("Success");
-          console.log(developer);
-          //Clear inputs
-          setDeveloper({
-            name: "",
-            services: "",
-            location: "",
-            clients: "",
-            url: "",
-            logo: ""
-          });
+      const response = await 
+      axios.
+        post("http://localhost:8080/api/v1/developer/add",
+        formData, {
+          headers: {
+            "Content-Type": "multipart/form-data"
+          }
         }
-      } catch (error) {
-        console.error("Error:", error);
-      }
+      );
+      console.log(response)
+    }
+    catch (error) {
+      console.log(error);
+    }
       clearForm();
 }
 
@@ -46,11 +53,18 @@ const clearForm = () => {
 }
 
 const handleDeveloperChange = (e) => {
+  if (e.target.name === 'file') {
     setDeveloper({
       ...developer,
-      [e.target.name]: e.target.value
+      file: e.target.files[0],
+    });
+  } else {
+    setDeveloper({
+      ...developer,
+      [e.target.name]: e.target.value,
     });
   }
+};
 
 
   return (
@@ -64,13 +78,14 @@ const handleDeveloperChange = (e) => {
         </div>
         <form className="addModalForm" onSubmit={handleSubmit}>
           <input type="text" placeholder="Name" name="name" onChange={handleDeveloperChange}/>
+          <input type="text" placeholder="Rating" name="rating" onChange={handleDeveloperChange}/>
           <input type="text" placeholder="Services" name="services" onChange={handleDeveloperChange}/>
           <input type="text" placeholder="Location" name="location" onChange={handleDeveloperChange}/>
           <input type="text" placeholder="Recent clients" name="clients" onChange={handleDeveloperChange}/>
           <input type="text" placeholder="URL" name="url" onChange={handleDeveloperChange}/>
           <div className="modalBTNs">
             <label className="logo">
-              <input type="file" name="logo" onChange={handleDeveloperChange}/>
+              <input type="file" accept="image/*" name="file" onChange={handleDeveloperChange}/>
               Logo
             </label>
             <input type="submit" className="add" onClick={clearForm} value="Add"></input>
