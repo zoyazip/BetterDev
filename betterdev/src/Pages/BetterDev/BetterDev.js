@@ -3,13 +3,17 @@ import MainTitle from "./MainTitle/MainTitle";
 import BackendOnly from "./BackendOnly/BackendOnly";
 import Cards from "./Card/Cards";
 import "./BetterDev.css"
+import { useState } from "react";
 
 const BetterDev = () => {
+    const [category, setCategory] = useState("All");
+
+
     return (
     <div className="betterDev">
-        <Nav />
+        <Nav setCategory={setCategory}/>
         <MainTitle />
-        <Cards />
+        <Cards category={category}/>
         <BackendOnly />
     </div>
     );
