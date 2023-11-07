@@ -23,18 +23,7 @@ public class DeveloperController {
         System.out.println("Called");
         DeveloperEntity developerEntity = new DeveloperEntity();
 
-        try {
-            if (file != null) {
-                ImageEntity image = new ImageEntity();
-                image.setImageData(file.getBytes());
-                image.setName(file.getOriginalFilename());
-                image.setDataType(file.getContentType());
-                ImageEntity imageEntity = imageRepository.save(image);
-                developerEntity.setLogo(imageEntity);
-            }
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().build();
-        }
+        developerEntity.setLogo(createImage(file));
 
         developerEntity.setName(name);
         developerEntity.setClients(clients);
@@ -46,6 +35,21 @@ public class DeveloperController {
         DeveloperEntity savedDeveloperEntity = developerRepository.save(developerEntity);
 
         return ResponseEntity.ok(savedDeveloperEntity);
+    }
+
+    public ImageEntity createImage(MultipartFile file) {
+        try {
+            if (file != null) {
+                ImageEntity image = new ImageEntity();
+                image.setImageData(file.getBytes());
+                image.setName(file.getOriginalFilename());
+                image.setDataType(file.getContentType());
+                return imageRepository.save(image);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
     }
 
 
@@ -87,7 +91,6 @@ public class DeveloperController {
                 break;
         }
 
-
         return ResponseEntity.ok().headers(headers).body(imageData);
     }
 
@@ -110,5 +113,24 @@ public class DeveloperController {
     @DeleteMapping("/remove/{id}")
     public void removeDeveloper(@PathVariable Integer id) {
         developerRepository.delete(developerRepository.getReferenceById(id));
+        imageRepository.delete(developerRepository.getReferenceById(id).getLogo());
+    }
+
+    @PutMapping("/update/{id}")
+    public DeveloperEntity editDeveloper(@PathVariable Integer id, @RequestParam("clients") String clients, @RequestParam("location") String location, @RequestParam("name") String name, @RequestParam("rating") String rating, @RequestParam("services") String services, @RequestParam("url") String url, @RequestParam("file") MultipartFile file) {
+
+        developerRepository.findById(id).map(developer -> {
+            developer.setLogo(createImage(file));
+            developer.setName(name);
+            developer.setRating(rating);
+            developer.setUrl(url);
+            developer.setLocation(location);
+            developer.setClients(clients);
+            developer.setServices(services);
+
+            return developerRepository.save(developer);
+        });
+
+        return null;
     }
 }
