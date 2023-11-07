@@ -1,0 +1,47 @@
+.rowEdit {
+    background-color: red;
+    position: absolute;
+    width: 1154px;
+    height: 50px;
+    margin-top: 100px;
+    background-color: #2562FF;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+.editName {
+    margin-left: 15px;
+    width: 130px;
+}
+.editServices {
+    margin-left: 15px;
+    width: 295px;
+}
+.editLocation{
+   margin-left: 15px;
+   width: 145px;
+}
+.editClients {
+    margin-left: 15px;
+    width: 100px;
+}
+.editLogo {
+    padding: 1px 20px;
+    background-color: #ffffff;
+    margin-left: 15px;
+}
+.editRating{
+    margin-left: 15px;
+    width: 50px;
+}
+.editUrl {
+    margin-left: 15px;
+    width: 90px;
+}
+.editSave {
+    margin-left: 30px;
+}
+.hide {
+    display: none;
+}
