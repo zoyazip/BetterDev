@@ -112,8 +112,20 @@ public class DeveloperController {
 
     @DeleteMapping("/remove/{id}")
     public void removeDeveloper(@PathVariable Integer id) {
-        developerRepository.delete(developerRepository.getReferenceById(id));
-        imageRepository.delete(developerRepository.getReferenceById(id).getLogo());
+        DeveloperEntity developer = developerRepository.findById(id).orElse(null);
+
+        if (developer != null) {
+            // Delete the associated image first
+            ImageEntity logo = developer.getLogo();
+            if (logo != null) {
+                developer.setLogo(null);
+                developerRepository.save(developer);
+
+                imageRepository.delete(logo);
+            }
+
+            developerRepository.delete(developer);
+        }
     }
 
     @PutMapping("/update/{id}")
