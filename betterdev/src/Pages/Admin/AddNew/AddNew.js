@@ -27,7 +27,8 @@ const AddNew = (props) => {
     formData.append("url", developer.url);
     formData.append("file", developer.file);
     formData.append("rating", developer.rating)
-
+    console.log("ADD DATA========")
+    console.log(developer.file);
     try {
       const response = await 
       axios.
