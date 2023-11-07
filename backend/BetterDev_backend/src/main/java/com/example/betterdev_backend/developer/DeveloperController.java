@@ -106,4 +106,9 @@ public class DeveloperController {
         List<DeveloperEntity> entities = developerRepository.findAll();
         return ResponseEntity.ok(entities);
     }
+
+    @DeleteMapping("/remove/{id}")
+    public void removeDeveloper(@PathVariable Integer id) {
+        developerRepository.delete(developerRepository.getReferenceById(id));
+    }
 }
