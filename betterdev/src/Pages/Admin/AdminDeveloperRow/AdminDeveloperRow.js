@@ -2,6 +2,7 @@ import "./AdminDeveloperRow.css";
 import Edit from "../../../Assets/edit.svg"
 import Remove from "../../../Assets/remove.svg"
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 const AdminDeveloperRow = (props) => {
     const [imageSrc, setImageSrc] = useState('');
@@ -16,7 +17,18 @@ const AdminDeveloperRow = (props) => {
       }, [props.logo]);
 
       const handleRemove = () => {
-        console.log("removed");
+        try {
+            axios
+            .delete(`http://localhost:8080/api/v1/developer/remove/${parseInt(props.id)}`)
+            .then((response) => {
+                props.onRemove(props.id);
+            })
+            .catch((error) => {
+              console.error("Error fetching data:", error);
+            });
+        } catch (error) {
+            console.log(error)
+        }
       }
 
     return (
