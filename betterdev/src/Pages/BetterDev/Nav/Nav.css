@@ -39,6 +39,7 @@
 
 .navigation__link {
     text-decoration: none;
+    cursor: pointer;
 }
 
 .burgerMenu {

@@ -3,7 +3,7 @@ import Card from "./Card";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const Cards = () => {
+const Cards = ({category}) => {
   const [developers, setDevelopers] = useState([]);
 
   useEffect(() => {
@@ -17,9 +17,11 @@ const Cards = () => {
       });
   }, []);
 
+  const filteredDevelopers = category === "All" ? developers : developers.filter((e) => e.services.includes(category));
+
   return (
     <div>
-      {developers.map((developer) => (
+      {filteredDevelopers.map((developer) => (
         <Card
           key={developer.id}
           name={developer.name}
