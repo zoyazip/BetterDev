@@ -16,15 +16,6 @@ import java.util.List;
 public class DeveloperController {
     private final DeveloperRepository developerRepository;
     private final ImageRepository imageRepository;
-//    @PostMapping("/add")
-//    public ResponseEntity<DeveloperEntity> add(@RequestBody DeveloperEntity developerEntity) {
-//
-//        System.out.println("Called");
-//
-//        DeveloperEntity savedDeveloperEntity = developerRepository.save(developerEntity);
-//
-//        return ResponseEntity.ok(savedDeveloperEntity);
-//    }
 
     @PostMapping("/add")
     public ResponseEntity<DeveloperEntity> add(@RequestParam("clients") String clients, @RequestParam("location") String location, @RequestParam("name") String name, @RequestParam("rating") String rating, @RequestParam("services") String services, @RequestParam("url") String url, @RequestParam("file") MultipartFile file) {
