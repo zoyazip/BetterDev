@@ -4,17 +4,21 @@
     align-items: center;
     margin-bottom: 80px;
 }
+
 .shapes {
     margin-top: 80px;
 }
+
 .mainTitle {
     margin-top: 70px;
     width: 880px;
     font-size: 75px;
 }
+
 .titleBold {
     font-weight: 700;
 }
+
 .titleBlue {
     color: #2562FF;
 }

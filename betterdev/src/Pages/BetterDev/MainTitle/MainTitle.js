@@ -1,25 +1,25 @@
 import React, { useEffect, useRef } from 'react';
-import TitleShapes from "../../../Assets/titleshapes.svg"
+import TitleShapes from "../../../Assets/titleshapes.svg";
 import "./MainTitle.css";
 
 const MainTitle = () => {
-    const mainTitleRef = useRef(null);
+  const mainTitleRef = useRef(null);
 
-    useEffect(() => {
-      const mainTitle = mainTitleRef.current;
-  
-      const handleScroll = () => {
-        const offset = window.scrollY;
+  useEffect(() => {
+    const mainTitle = mainTitleRef.current;
 
-        mainTitle.style.transform = `translateY(-${offset * 0.1}px)`;
-      };
-  
-      window.addEventListener('scroll', handleScroll);
-  
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-      };
-    }, []);
+    const handleScroll = () => {
+      const offset = window.scrollY;
+      mainTitle.style.transform = `translateY(-${offset * 0.1}px)`;
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <div className="title__container" ref={mainTitleRef}>
       <div className="mainTitle">
