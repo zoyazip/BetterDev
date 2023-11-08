@@ -8,7 +8,6 @@ import { useState } from "react";
 const BetterDev = () => {
     const [category, setCategory] = useState("All");
 
-
     return (
     <div className="betterDev">
         <Nav setCategory={setCategory}/>
